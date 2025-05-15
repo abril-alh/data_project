@@ -90,7 +90,7 @@ def get_news(country_code, city):
             
             if not articles:
                 # Fallback to country news if no city-specific news found
-                url = f"https://newsapi.org/v2/top-headlines?country={country_code}&category=general&apiKey={api_key}"
+                url = f"https://www.newsapi.ai/api/top-headlines?country={country_code}&category=general&apiKey={api_key}"
                 response = requests.get(url, timeout=10)
                 
                 if response.status_code == 200:
