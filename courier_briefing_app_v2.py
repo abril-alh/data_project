@@ -140,9 +140,37 @@ def provide_safety_tips(temp_value):
     else:
         st.success("• No specific weather-related safety concerns. Proceed normally.")
 
+def generate_briefing(location, country):
+    with st.spinner("Generating briefing..."):
+        weather_success, (weather_data, temp_val) = get_weather(location)
+        news_success, news_data = get_news(country, location)
+        load_level, load_details = estimate_delivery_load(location)
 
+        st.subheader(f"Zone: {location.title()}")
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.markdown("### 🌤️ Weather")
+            st.info(weather_data) if weather_success else st.error(weather_data)
+        with col2:
+            st.markdown("### 📦 Delivery Load")
+            if load_level == "High":
+                st.error(f"**{load_level}**\n{load_details}")
+            elif load_level == "Medium":
+                st.warning(f"**{load_level}**\n{load_details}")
+            else:
+                st.success(f"**{load_level}**\n{load_details}")
+        with col3:
+            st.markdown("### ⏰ Current Time")
+            st.info(f"{get_local_time(location)} local time")
 
-   
+        st.markdown("### 📰 Local News")
+        if news_success:
+            for i, headline in enumerate(news_data):
+                st.write(f"{i+1}. {headline}")
+        else:
+            st.error(news_data[0])
+
+        provide_safety_tips(temp_val)
 
 if st.button("Generate Delivery Briefing", key="generate_btn", type="primary"):
     generate_briefing(location, country)
