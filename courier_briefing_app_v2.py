@@ -172,8 +172,12 @@ def generate_briefing(location, country):
 
         provide_safety_tips(temp_val)
 
-if st.button("Generate Delivery Briefing", key="generate_btn", type="primary"):
-    generate_briefing(location, country)
+st.button(
+    "Generate Delivery Briefing",
+    key="generate_btn",
+    on_click=generate_briefing,
+    args=(location, country)
+)
 
 with st.expander("Show location on map"):
     st.write("Map visualization will be shown here in a future update.")
