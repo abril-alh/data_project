@@ -150,7 +150,9 @@ def generate_briefing(location, country):
         col1, col2, col3 = st.columns(3)
         with col1:
             st.markdown("### 🌤️ Weather")
-            st.info(weather_data) if weather_success else st.error("n")
+            st.info(weather_data) 
+            if weather_success 
+            else st.error("write nothing")
         with col2:
             st.markdown("### 📦 Delivery Load")
             if load_level == "High":
