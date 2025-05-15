@@ -150,7 +150,7 @@ def generate_briefing(location, country):
         col1, col2, col3 = st.columns(3)
         with col1:
             st.markdown("### 🌤️ Weather")
-            st.info(weather_data) 
+            st.info(weather_data) if weather_success else st.error(weather_data)
         with col2:
             st.markdown("### 📦 Delivery Load")
             if load_level == "High":
@@ -172,7 +172,7 @@ def generate_briefing(location, country):
 
         provide_safety_tips(temp_val)
 
-with st.button("Generate Delivery Briefing", key="generate_btn", type="primary"):
+if st.button("Generate Delivery Briefing", key="generate_btn", type="primary"):
     generate_briefing(location, country)
 
 with st.expander("Show location on map"):
