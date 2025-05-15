@@ -79,7 +79,7 @@ def get_weather(city):
 # Function to fetch news data with error handling
 def get_news(country_code, city):
     # Clean up API key
-    api_key2 = api_weather.strip()
+    api_key2 = api_news.strip()
     
     # Use city name in query to get more relevant local news
     url = f"http://api.mediastack.com/v1/news?country={country_code}&q={city}&apiKey={api_key2}"
