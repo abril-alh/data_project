@@ -175,7 +175,7 @@ def generate_briefing(location, country):
 if st.button("Generate Delivery Briefing", key="generate_btn", type="primary"):
     generate_briefing(location, country)
 
-st.sidebar.write("---")
+st.sidebar.write("Feedback")
 st.sidebar.write("**Was this briefing useful?**")
 useful_yes = st.sidebar.button("Yes, useful")
 useful_no = st.sidebar.button("No, not useful")
