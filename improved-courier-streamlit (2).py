@@ -79,7 +79,7 @@ def get_news(country_code, city):
     api_key = NEWS_API_KEY.strip()
     
     # Use city name in query to get more relevant local news
-    url = f"https://newsapi.org/v2/top-headlines?country={country_code}&q={city}&apiKey={api_key}"
+    url = f"http://api.mediastack.com/v1/news?country={country_code}&q={city}&apiKey={api_key}"
     
     try:
         response = requests.get(url, timeout=10)
@@ -90,7 +90,7 @@ def get_news(country_code, city):
             
             if not articles:
                 # Fallback to country news if no city-specific news found
-                url = f"https://newsapi.org/v2/top-headlines?country={country_code}&category=general&apiKey={api_key}"
+                url = f"http://api.mediastack.com/v1/news?country={country_code}&category=general&apiKey={api_key}"
                 response = requests.get(url, timeout=10)
                 
                 if response.status_code == 200:
