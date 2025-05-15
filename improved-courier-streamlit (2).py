@@ -77,12 +77,12 @@ def get_weather(city):
         return False, f"Network error while fetching weather data: {str(e)}"
 
 # Function to fetch news data with error handling
-def get_news(country_code, city):
+def get_news(country, city):
     # Clean up API key
     api_key2 = api_news.strip()
     
     # Use city name in query to get more relevant local news
-    url = f"http://api.mediastack.com/v1/news?country={country_code}&q={city}&apiKey={api_key2}"
+    url = f"http://api.mediastack.com/v1/news?country={country}&q={city}&apiKey={api_key2}"
     
     try:
         response = requests.get(url, timeout=10)
@@ -93,7 +93,7 @@ def get_news(country_code, city):
             
             if not articles:
                 # Fallback to country news if no city-specific news found
-                url = f"http://api.mediastack.com/v1/news?country={country_code}&category=general&apiKey={api_key2}"
+                url = f"http://api.mediastack.com/v1/news?country={country}&category=general&apiKey={api_key2}"
                 response = requests.get(url, timeout=10)
                 
                 if response.status_code == 200:
