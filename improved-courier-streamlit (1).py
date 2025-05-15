@@ -79,7 +79,7 @@ def get_news(country_code, city):
     api_key = NEWS_API_KEY.strip()
     
     # Use city name in query to get more relevant local news
-    url = f"https://newsapi.org/v2/top-headlines?country={country_code}&q={city}&apiKey={api_key}"
+    url = f"https://www.newsapi.ai/api/top-headlines?country={country_code}&q={city}&apiKey={api_key}"
     
     try:
         response = requests.get(url, timeout=10)
