@@ -175,8 +175,6 @@ def generate_briefing(location, country):
 if st.button("Generate Delivery Briefing", key="generate_btn", type="primary"):
     generate_briefing(location, country)
 
-with st.expander("Show location on map"):
-    st.write(" ")
 
 st.markdown("---")
 st.markdown("""
