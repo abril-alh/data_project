@@ -394,6 +394,3 @@ def main():
     except Exception as e:
         st.error(f"Error saving data: {str(e)}")
 
-if name == "_main_":
-    main()
- 
