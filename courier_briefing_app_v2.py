@@ -185,27 +185,9 @@ elif useful_no:
     st.sidebar.error("Sorry to hear that. We'll improve.")
 
 
-from geopy.geocoders import Nominatim
-import pandas as pd
 
-# Get coordinates using geopy
-def get_coordinates(city_name):
-    try:
-        geolocator = Nominatim(user_agent="courier_app")
-        location = geolocator.geocode(city_name)
-        if location:
-            return location.latitude, location.longitude
-    except:
-        return None, None
-    return None, None
 
-latitude, longitude = get_coordinates(location)
 
-# Display map if coordinates found
-if latitude and longitude:
-    st.map(pd.DataFrame([[latitude, longitude]], columns=["lat", "lon"]))
-else:
-    st.warning("Map not available for this location.")
 
 
 st.markdown("---")
