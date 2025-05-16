@@ -185,8 +185,13 @@ elif useful_no:
     st.sidebar.error("Sorry to hear that. We'll improve.")
 
 
+import streamlit as st
 
-
+st.logo(
+    LOGO_URL_LARGE,
+    link="https://github.com/abril-alh/data_project/blob/main/Captura%20de%20pantalla%202025-05-16%20195400.png",
+    icon_image=LOGO_URL_SMALL,
+)
 
 
 
