@@ -193,11 +193,6 @@ def generate_map(lat, lon, zoom=12):
     """Generate an interactive 3D map for the location"""
     # Create a layer for the map
     layer = pdk.Layer(
-        "HexagonLayer",
-        data=pd.DataFrame({
-            "lat": [lat],
-            "lon": [lon]
-        }),
         get_position=["lon", "lat"],
         auto_highlight=True,
         elevation_scale=50,
