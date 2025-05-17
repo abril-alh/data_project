@@ -207,7 +207,6 @@ def generate_map(lat, lon, zoom=12):
     # Combined all of it and render a viewport
     r = pdk.Deck(
         map_style="mapbox://styles/mapbox/light-v9",
-        layers=[layer],
         initial_view_state=view_state,
         tooltip={"text": "Delivery Zone Center"},
     )
