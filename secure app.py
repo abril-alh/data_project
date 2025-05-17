@@ -193,22 +193,7 @@ def get_safety_tips(weather_data):
 
 def generate_map(lat, lon, zoom=12):
     """Generate an interactive 3D map for the location"""
-    # Create a layer for the map
-    layer = pdk.Layer(
-        "HexagonLayer",
-        data=pd.DataFrame({
-            "lat": [lat],
-            "lon": [lon]
-        }),
-        get_position=["lon", "lat"],
-        auto_highlight=True,
-        elevation_scale=50,
-        pickable=True,
-        elevation_range=[0, 300],
-        extruded=True,
-        coverage=1,
-        radius=1000,
-    )
+    
 
     # Set the viewport location
     view_state = pdk.ViewState(
@@ -224,7 +209,6 @@ def generate_map(lat, lon, zoom=12):
     # Combined all of it and render a viewport
     r = pdk.Deck(
         map_style="mapbox://styles/mapbox/light-v9",
-        layers=[layer],
         initial_view_state=view_state,
         tooltip={"text": "Delivery Zone Center"},
     )
