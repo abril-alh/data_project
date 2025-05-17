@@ -192,7 +192,21 @@ def get_safety_tips(weather_data):
 def generate_map(lat, lon, zoom=12):
     """Generate an interactive 3D map for the location"""
     # Create a layer for the map
-   
+    layer = pdk.Layer(
+        "HexagonLayer",
+        data=pd.DataFrame({
+            "lat": [lat],
+            "lon": [lon]
+        }),
+        get_position=["lon", "lat"],
+        auto_highlight=True,
+        elevation_scale=50,
+        pickable=True,
+        elevation_range=[0, 300],
+        extruded=True,
+        coverage=1,
+        radius=1000,
+    )
 
     # Set the viewport location
     view_state = pdk.ViewState(
@@ -208,21 +222,25 @@ def generate_map(lat, lon, zoom=12):
     # Combined all of it and render a viewport
     r = pdk.Deck(
         map_style="mapbox://styles/mapbox/light-v9",
+        layers=[layer],
         initial_view_state=view_state,
         tooltip={"text": "Delivery Zone Center"},
     )
     
     return r
 
-# API Keys
+# Main app
+def main():
+    # Sidebar configuration
+    st.sidebar.markdown("### 🚚 Configuration")
+    
+    # API Keys
     default_weather_key = "bc76588823fc2b0ff58485ed9196da3c"
     # Corregido: API key por defecto para NewsAPI.org
     default_news_key = "04b45dc5-16ea-4ae6-a879-1730368ef95b"
-    weather_key = "bc76588823fc2b0ff58485ed9196da3c"
-    news_key = "04b45dc5-16ea-4ae6-a879-1730368ef95b"
-
-# Main app
-def main():
+    
+    weather_key = st.sidebar.text_input("OpenWeatherMap API Key", value=default_weather_key)
+    news_key = st.sidebar.text_input("NewsAPI.org API Key", value=default_news_key)
     
     # Location settings
     st.sidebar.markdown("---")
