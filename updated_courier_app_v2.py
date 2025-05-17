@@ -192,16 +192,7 @@ def get_safety_tips(weather_data):
 def generate_map(lat, lon, zoom=12):
     """Generate an interactive 3D map for the location"""
     # Create a layer for the map
-    layer = pdk.Layer(
-        get_position=["lon", "lat"],
-        auto_highlight=True,
-        elevation_scale=50,
-        pickable=True,
-        elevation_range=[0, 300],
-        extruded=True,
-        coverage=1,
-        radius=1000,
-    )
+   
 
     # Set the viewport location
     view_state = pdk.ViewState(
