@@ -8,8 +8,6 @@ import time
 import os
 
 
-# Load environment variables from .env file if it exists
-load_dotenv()
 
 # Set page configuration
 st.set_page_config(
