@@ -216,16 +216,6 @@ def generate_map(lat, lon, zoom=12):
 
 # Main app
 def main():
-    # Sidebar configuration
-    st.sidebar.markdown("### 🚚 Configuration")
-    
-    # API Keys
-    default_weather_key = "bc76588823fc2b0ff58485ed9196da3c"
-    # Corregido: API key por defecto para NewsAPI.org
-    default_news_key = "04b45dc5-16ea-4ae6-a879-1730368ef95b"
-    
-    weather_key = st.sidebar.text_input("OpenWeatherMap API Key", value=default_weather_key)
-    news_key = st.sidebar.text_input("NewsAPI.org API Key", value=default_news_key)
     
     # Location settings
     st.sidebar.markdown("---")
