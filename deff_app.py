@@ -88,11 +88,11 @@ import pydeck as pdk
 import time as tm
 import os
 
-import plotly.graph_objects as go
+
 import numpy as np
 
 # Load environment variables from .env file if it exists
-load_dotenv()
+
 
 # Set page configuration
 st.set_page_config(
