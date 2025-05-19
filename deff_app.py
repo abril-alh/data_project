@@ -77,7 +77,9 @@ def generate_traffic_data(city):
         else:
             formatted_ranges.append(f"{time_range[0]}:00-{time_range[-1]}:00")
     
-    return traffic_df, formatted_rangesimport streamlit as st
+    return traffic_df, formatted_ranges
+
+import streamlit as st
 import requests
 from datetime import datetime, time
 import json
