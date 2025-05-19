@@ -87,7 +87,7 @@ import pandas as pd
 import pydeck as pdk
 import time as tm
 import os
-from dotenv import load_dotenv
+
 import plotly.graph_objects as go
 import numpy as np
 
