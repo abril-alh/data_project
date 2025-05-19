@@ -88,6 +88,8 @@ import pydeck as pdk
 import time as tm
 import os
 import numpy as np
+
+pip install -r requirements.txt
 import matplotlib.pyplot as plt
 
 # Load environment variables from .env file if it exists
